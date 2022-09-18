@@ -107,7 +107,7 @@ while ($sum < 10) {
 }
 echo nl2br("\n"  . $i);
 
-echo nl2br("Task 7:\n");
+echo nl2br("\nTask 7:");
 function printStringReturnNumber(string $i): int
 {
     echo nl2br("\n"  .$i);
@@ -116,3 +116,10 @@ function printStringReturnNumber(string $i): int
 
 $my_num = printStringReturnNumber('256');
 echo nl2br("\n"  . $my_num);
+//Write an increaseEnthusiasm() function that takes string parameter and returns this string, padded exclamation mark.
+
+function increaseEnthusiasm(string $str): string
+{
+    return $str . '!';
+}
+echo nl2br("\n"  . increaseEnthusiasm('Hello'));
