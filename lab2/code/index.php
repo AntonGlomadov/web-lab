@@ -246,3 +246,39 @@ else {
 $arr = [1, 2, 3];
 if (count($arr) === 3)
     echo nl2br("\n"  . array_sum($arr));
+
+function arithmeticMean(array $arr): float
+{
+    return array_sum($arr) / count($arr);
+}
+
+function sum(int $num): int
+{
+    return $num === 1 ? 1 : $num + sum($num - 1);
+}
+
+echo nl2br("\n"  . sum(100));
+
+//Given an array of numbers. Get an array from it with square the roots of these numbers without using a loop.
+$arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function squareRoots(array $arr): array
+{
+    return array_map(function ($item) {
+        return sqrt($item);
+    }, $arr);
+}
+printArr(squareRoots($arr));
+
+$arr = array_fill_keys(range('a', 'z'), 0);
+foreach ($arr as $key => $value) {
+    $arr[$key] = ord($key) - 96;
+}
+echo '<pre>';
+print_r($arr);
+echo '</pre>';
+
+function sumOfPairs(string $str): int
+{
+    return array_sum(str_split($str, 2));
+}
+echo nl2br("\n"  . sumOfPairs('1234567890'));
