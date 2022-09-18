@@ -95,7 +95,24 @@ for ($i = 1; $i <= ($num); $i++) {
     if ($num % $i === 0)
         $divArr[] = $i;
 }
-
 echo '<pre>';
 print_r($divArr);
 echo '</pre>';
+$sumArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+$sum = 0;
+$i = 0;
+while ($sum < 10) {
+    $sum += $sumArr[$i];
+    $i++;
+}
+echo nl2br("\n"  . $i);
+
+echo nl2br("Task 7:\n");
+function printStringReturnNumber(string $i): int
+{
+    echo nl2br("\n"  .$i);
+    return (int)$i;
+}
+
+$my_num = printStringReturnNumber('256');
+echo nl2br("\n"  . $my_num);
