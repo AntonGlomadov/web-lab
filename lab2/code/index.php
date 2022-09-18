@@ -215,3 +215,34 @@ $arr = ['a', 'b', 'c', 'd', 'e'];
  echo nl2br("\n"  . count($arr));
 echo nl2br("\n"  . $arr[count($arr) - 1]);
 echo nl2br("\n"  . $arr[count($arr) - 2]);
+
+function sumOfTwo(int $a, int $b): bool
+{
+    return $a + $b > 10;
+}
+
+function isEqual(int $a, int $b): bool
+{
+    return $a === $b;
+}
+
+echo $test == 0 ? 'верно' : 'неверно';
+
+$age = 99;
+if ($age < 10 || $age > 99)
+    echo nl2br("\n"  . 'The number is less than 10 or greater than 99');
+else {
+    $sum = 0;
+    while ($age > 0) {
+        $sum += $age % 10;
+        $age = (int)($age / 10);
+    }
+    if ($sum <= 9)
+        echo nl2br("\n"  . 'The sum of the digits is single digit');
+    else
+        echo nl2br("\n"  . 'The sum of the digits is two digit');
+}
+
+$arr = [1, 2, 3];
+if (count($arr) === 3)
+    echo nl2br("\n"  . array_sum($arr));
