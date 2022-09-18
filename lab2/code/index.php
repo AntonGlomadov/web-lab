@@ -28,6 +28,15 @@ $days = $months * 16;
 $days_per_language = $days / $num_languages;
 echo nl2br("\n" . $days_per_language);
 
-echo nl2br("\n Task 3:");
+echo nl2br("\n Task 4:");
 echo nl2br("\n" . 8 ** 2);
 
+echo nl2br("\n Task 5:");
+$my_num = 322;
+$answer = $my_num;
+$answer += 2;
+$answer *= 2;
+$answer -= 2;
+$answer /= 2;
+$answer -= $my_num;
+echo nl2br("\n" . $answer);
