@@ -116,10 +116,102 @@ function printStringReturnNumber(string $i): int
 
 $my_num = printStringReturnNumber('256');
 echo nl2br("\n"  . $my_num);
-//Write an increaseEnthusiasm() function that takes string parameter and returns this string, padded exclamation mark.
 
+echo nl2br("\nTask 8:");
 function increaseEnthusiasm(string $str): string
 {
     return $str . '!';
 }
 echo nl2br("\n"  . increaseEnthusiasm('Hello'));
+
+function repeatThreeTimes(string $str): string
+{
+    return $str . $str . $str;
+}
+echo nl2br("\n"  . repeatThreeTimes('Hello'));
+
+echo nl2br("\n"  . increaseEnthusiasm(repeatThreeTimes('Hello')));
+
+function cut(string $str, int $num = 10): string
+{
+    return substr($str, 0, $num);
+}
+
+function printArr(array $arr, int $i = 0): void
+{
+    if ($i < count($arr)) {
+        echo nl2br("\n"  . $arr[$i]);
+        printArr($arr, $i + 1);
+    }
+}
+
+function sumOfDigits(int $num): int
+{
+    $sum = 0;
+    while ($num > 0) {
+        $sum += $num % 10;
+        $num = (int)($num / 10);
+    }
+    if ($sum > 9)
+        return sumOfDigits($sum);
+    return $sum;
+}
+
+echo nl2br("Task 9:\n");//также задача 19
+$arr = []; 
+for ($i = 0; $i < 20; $i++) {
+    $arr[$i] = '';
+    for ($j = 0; $j <= $i; $j++) {
+        $arr[$i] .= 'x';
+    }
+}
+printArr($arr);
+
+function arrayFill(string $str, int $num): array
+{
+    $arr = [];
+    for ($i = 0; $i < $num; $i++) {
+        $arr[$i] = $str;
+    }
+    return $arr;
+}
+printArr(arrayFill('x', 5));
+
+function sumOfArr(array $arr): int
+{
+    $sum = 0;
+    foreach ($arr as $item) {
+        if (is_array($item))
+            $sum += sumOfArr($item);
+        else
+            $sum += $item;
+    }
+    return $sum;
+}
+$arr = [[1, 2, 3], [4, 5], [6, 7, 8, 9]];
+echo nl2br("\n"  . sumOfArr($arr));
+
+$arr = [];
+for ($i = 0; $i < 3; $i++) {
+    for ($j = 0; $j < 3; $j++) {
+        $arr[$i][$j] = $i * 3 + $j + 1;
+    }
+}
+echo '<pre>';
+print_r($arr);
+echo '</pre>';
+
+$arr = [2, 5, 3, 9];
+$result = $arr[0] * $arr[1] + $arr[2] * $arr[3];
+echo nl2br("\n"  . $result);
+
+$user = ['name' => 'Ivan', 'surname' => 'Ivanov', 'patronymic' => 'Ivanovich'];
+echo nl2br("\n"  . $user['surname'] . ' ' . $user['name'] . ' ' . $user['patronymic']);
+
+$date = ['year' => date('Y'), 'month' => date('m'), 'day' => date('d')];
+echo nl2br("\n"  . $date['year'] . '-' . $date['month'] . '-' . $date['day']);
+
+$arr = ['a', 'b', 'c', 'd', 'e'];
+ echo nl2br("\n"  . count($arr));
+echo nl2br("\n"  . $arr[count($arr) - 1]);
+echo nl2br("\n"  . $arr[count($arr) - 2]);
