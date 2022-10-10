@@ -33,7 +33,7 @@ printTask("Дана строка с целыми числами 'a1b2c3'. С п�
 <form action="regex.php" method="post">
     <input type="text" name="numstr">
     <input type="submit" value="Отправить">
-</form>;
+</form>
 <?php
 if (!empty($_POST['numstr'])) {
     $str = $_POST['numstr'];
@@ -44,4 +44,6 @@ if (!empty($_POST['numstr'])) {
     echo nl2br("\n" . $str);
 }
 ?>
-<a href="../index.php">Назад</a>
+<form action="../index.php" method="post">
+    <input type="submit" value="Назад">
+</form>

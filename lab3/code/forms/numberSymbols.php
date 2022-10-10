@@ -23,5 +23,7 @@ if (!empty($_POST['text'])) {
 }
 ?>
 
-<a href="../index.php">Назад</a>
+<form action="../index.php" method="post">
+    <input type="submit" value="Назад">
+</form>
 

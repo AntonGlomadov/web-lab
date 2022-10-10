@@ -4,6 +4,13 @@
 <form action="forms/numberSymbols.php" method="post">
     <input type="submit" value="2a">
 </form>
+<form action="forms/userFormSmall.php" method="post">
+    <input type="submit" value="2b">
+</form>
+<form action="forms/userInfo.php" method="post">
+    <input type="submit" value="2c">
+</form>
+
 
 
 
