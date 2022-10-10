@@ -1,5 +1,4 @@
 <?php
-//show user info saved in session
 session_start();
 if (!empty($_SESSION['name']) && !empty($_SESSION['surname']) && !empty($_SESSION['age'])) {
     echo nl2br("\n" . "Имя: " . $_SESSION['name'] . "\n");

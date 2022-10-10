@@ -1,6 +1,4 @@
 <?php
-//с помощью формы спросите упользователя фамилию, имя и возраст. Запишите эти данные в сессию 
-
 session_start();
 if (!empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['age'])) {
     $_SESSION['name'] = $_POST['name'];
