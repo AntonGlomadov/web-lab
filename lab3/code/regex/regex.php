@@ -5,12 +5,12 @@ function printTask(string $str): void
 }
 printTask("Напишите регулярку, которая найдет строки 'abba', 'adca',
 'abea' по шаблону: буква 'a', два любых символа, буква 'b'.");
-
-echo '<form action="regex.php" method="post">
+?>
+<form action="regex.php" method="post">
     <input type="text" name="str">
     <input type="submit" value="Отправить">
-</form>';
-
+</form>
+<?php
 if (!empty($_POST['str'])) {
     $str = $_POST['str'];
     $pattern = '/a..b/';
@@ -26,15 +26,15 @@ if (!empty($_POST['str'])) {
 }
 
 echo nl2br("\n" . "----------------------------------------" . "\n");
+
 printTask("Дана строка с целыми числами 'a1b2c3'. С помощью
 регулярки преобразуйте строку так, чтобы вместо этих чисел стояли их кубы.");
-
-echo '<form action="regex.php" method="post">
+?>
+<form action="regex.php" method="post">
     <input type="text" name="numstr">
     <input type="submit" value="Отправить">
-</form>';
-
-
+</form>;
+<?php
 if (!empty($_POST['numstr'])) {
     $str = $_POST['numstr'];
     $pattern = '/(\d+)/';
@@ -43,6 +43,5 @@ if (!empty($_POST['numstr'])) {
     }, $str);
     echo nl2br("\n" . $str);
 }
-
 ?>
 <a href="../index.php">Назад</a>
