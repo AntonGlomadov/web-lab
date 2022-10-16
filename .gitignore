@@ -2,3 +2,7 @@
 .DS_Store
 
 lab3/code/dashboard/data/
+
+lab4/src/public/vendor/
+
+lab4/src/public/credentials.json
