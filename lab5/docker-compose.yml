@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: ""
+      dockerfile: ./docker/Dockerfile
+    restart: always
+    working_dir: /var/www/
+    volumes:
+      - ./src:/var/www
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    image: mysql:8.0
+    working_dir: /var/www/
+    volumes:
+      - ./src/public:/var/www
+    environment:
+      MYSQL_ROOT_PASSWORD: password192
+    ports:
+      - '4306:3306'
+
+  # nginx
+  nginx:
+    image: nginx
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - ./src:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d
+
+
