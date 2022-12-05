@@ -4,10 +4,10 @@ class Database{
     private mysqli $db;
 
     public function connect() {
-        $this->db = new mysqli('db', 'root', 'password192', 'webapp');
+        $this->db = new mysqli('db', 'root', 'password1923', 'webapp');
     }
 
-    public function createTable(){
+    public function createTableIfNotExist(){
         $sql = "CREATE TABLE IF NOT EXISTS adverts(
             id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
             titles VARCHAR(255) NOT NULL,

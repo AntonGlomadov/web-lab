@@ -1,9 +1,13 @@
 <?php
 include_once 'database.php';
-include_once 'ad.php';
+include_once 'advertismenDto.php';
 $database = new Database();
-$database->connect();
-$database->createTable();
+try {
+    $database->connect();
+    $database->createTable();
+} catch (Exception $e) {
+    echo 'Problem with connecting to db';
+}
 ?>
 
 <form action="index.php" method="post">
@@ -25,7 +29,11 @@ if(isset($_POST['submit'])){
     $advertismen->setName($_POST['name']);
     $advertismen->setDescription($_POST['description']);
     $advertismen->setEmail($_POST['email']);
-    $database->addAdvertismen($advertismen);
+    try {
+        $database->addAdvertismen($advertismen);
+    } catch (Exception $e) {
+        echo 'problem with adding advertismen';
+    }
 }
 ?>
 
@@ -39,24 +47,30 @@ if(isset($_POST['submit'])){
         <th>Delete</th>
     </tr>
     <?php
-    $result = $database->getAd();
-    while($row = $result->fetch_assoc()){
-        ?>
-        <tr>
-            <td><?php echo $row['titles']; ?></td>
-            <td><?php echo $row['name']; ?></td>
-            <td><?php echo $row['description']; ?></td>
-            <td><?php echo $row['email']; ?></td>
-            <td><a href="index.php?delete=<?php echo $row['id']; ?>">Delete</a></td>
-            <?php
-            if(isset($_GET['delete'])){
-                $id = $_GET['delete'];
-                $database->deleteAd($id);
-            }
+    try{
+        $result = $database->getAd();
+        while($row = $result->fetch_assoc()){
             ?>
-        </tr>
-        <?php
-    }
+            <tr>
+                <td><?php echo $row['titles']; ?></td>
+                <td><?php echo $row['name']; ?></td>
+                <td><?php echo $row['description']; ?></td>
+                <td><?php echo $row['email']; ?></td>
+                <td><a href="index.php?delete=<?php echo $row['id']; ?>">Delete</a></td>
+                <?php
+                if(isset($_GET['delete'])){
+                    $id = $_GET['delete'];
+                    try{
+                    $database->deleteAd($id);
+                    }catch (Exception $e){
+                        echo 'Problem with deleting data from db';
+                    }
+                }
+                ?>
+            </tr>
+            <?php
+        }
+    }catch (Exception $e){
+    echo 'Problem with getting data from db';
     ?>
 </table>
-
